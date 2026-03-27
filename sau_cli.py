@@ -18,6 +18,11 @@ from uploader.douyin_uploader.main import (
     cookie_auth as douyin_cookie_auth,
     douyin_setup,
 )
+from uploader.douyin_uploader.messages import (
+    list_conversations,
+    read_conversation,
+    reply_to_conversation,
+)
 from uploader.ks_uploader.main import (
     KUAISHOU_PUBLISH_STRATEGY_IMMEDIATE,
     KUAISHOU_PUBLISH_STRATEGY_SCHEDULED,
@@ -141,7 +146,20 @@ def resolve_runtime_home() -> Path:
 
 
 def resolve_account_file(platform: str, account_name: str) -> Path:
-    account_file = resolve_runtime_home() / "cookies" / f"{platform}_{account_name}.json"
+    runtime_home = resolve_runtime_home()
+
+    if platform == "xiaohongshu":
+        canonical = runtime_home / "cookies" / "xiaohongshu_uploader" / f"{account_name}.json"
+        legacy = runtime_home / "cookies" / f"xiaohongshu_{account_name}.json"
+        canonical.parent.mkdir(parents=True, exist_ok=True)
+
+        if canonical.exists():
+            return canonical
+        if legacy.exists():
+            return legacy
+        return canonical
+
+    account_file = runtime_home / "cookies" / f"{platform}_{account_name}.json"
     account_file.parent.mkdir(exist_ok=True)
     return account_file
 
@@ -470,6 +488,22 @@ def build_parser() -> argparse.ArgumentParser:
     upload_note_parser.add_argument("--schedule", type=schedule_value, help=f"Schedule time in {schedule_help}")
     add_runtime_flags(upload_note_parser)
 
+    # ── Douyin Messages ──
+    list_msg_parser = douyin_actions.add_parser("list-messages", help="List recent DM conversations")
+    list_msg_parser.add_argument("--account", required=True, help="Douyin account name")
+    add_runtime_flags(list_msg_parser)
+
+    read_msg_parser = douyin_actions.add_parser("read-messages", help="Read messages in a conversation")
+    read_msg_parser.add_argument("--account", required=True, help="Douyin account name")
+    read_msg_parser.add_argument("--index", type=int, default=0, help="Conversation index (0-based, from list-messages)")
+    add_runtime_flags(read_msg_parser)
+
+    reply_msg_parser = douyin_actions.add_parser("reply-message", help="Reply to a conversation")
+    reply_msg_parser.add_argument("--account", required=True, help="Douyin account name")
+    reply_msg_parser.add_argument("--index", type=int, required=True, help="Conversation index (0-based)")
+    reply_msg_parser.add_argument("--text", required=True, help="Reply text")
+    add_runtime_flags(reply_msg_parser)
+
     kuaishou_parser = platform_parsers.add_parser("kuaishou", help="Kuaishou operations")
     kuaishou_actions = kuaishou_parser.add_subparsers(dest="action", required=True)
 
@@ -558,7 +592,7 @@ async def dispatch(args: argparse.Namespace) -> int:
             print("valid" if is_valid else "invalid")
             return 0 if is_valid else 1
 
-        publish_strategy = DOUYIN_PUBLISH_STRATEGY_SCHEDULED if args.schedule else DOUYIN_PUBLISH_STRATEGY_IMMEDIATE
+        publish_strategy = DOUYIN_PUBLISH_STRATEGY_SCHEDULED if getattr(args, "schedule", None) else DOUYIN_PUBLISH_STRATEGY_IMMEDIATE
 
         if args.action == "upload-video":
             request = DouyinVideoUploadRequest(
@@ -594,6 +628,38 @@ async def dispatch(args: argparse.Namespace) -> int:
             await upload_note(request)
             print(f"Douyin note upload submitted: {len(request.image_files)} images")
             return 0
+
+        if args.action == "list-messages":
+            account_file = resolve_account_file("douyin", args.account)
+            conversations = await list_conversations(str(account_file), headless=args.headless)
+            if not conversations:
+                print("没有找到任何会话")
+                return 0
+            for conv in conversations:
+                unread_tag = " 🔴" if conv.unread else ""
+                print(f"[{conv.index}]{unread_tag} {conv.name}  {conv.time}")
+                if conv.last_message:
+                    print(f"    └─ {conv.last_message}")
+            return 0
+
+        if args.action == "read-messages":
+            account_file = resolve_account_file("douyin", args.account)
+            detail = await read_conversation(str(account_file), args.index, headless=args.headless)
+            print(f"== 与 {detail.contact_name} 的对话 ==")
+            if not detail.messages:
+                print("(没有读取到消息)")
+            for msg in detail.messages:
+                print(f"[{msg.sender}] {msg.text}")
+            return 0
+
+        if args.action == "reply-message":
+            account_file = resolve_account_file("douyin", args.account)
+            success = await reply_to_conversation(str(account_file), args.index, args.text, headless=args.headless)
+            if success:
+                print("消息发送成功 ✅")
+            else:
+                print("消息发送失败 ❌")
+            return 0 if success else 1
 
         raise RuntimeError(f"Unsupported Douyin action: {args.action}")
 
