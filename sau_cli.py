@@ -10,6 +10,11 @@ from typing import Iterable, Sequence
 
 from conf import BASE_DIR
 from uploader.bilibili_uploader.runtime import run_biliup_command
+from uploader.bilibili_uploader.messages import (
+    list_conversations as bilibili_list_conversations,
+    read_conversation as bilibili_read_conversation,
+    reply_to_conversation as bilibili_reply_to_conversation,
+)
 from uploader.douyin_uploader.main import (
     DOUYIN_PUBLISH_STRATEGY_IMMEDIATE,
     DOUYIN_PUBLISH_STRATEGY_SCHEDULED,
@@ -575,6 +580,20 @@ def build_parser() -> argparse.ArgumentParser:
     bilibili_upload_video_parser.add_argument("--tid", required=True, type=int, help="Bilibili category id")
     bilibili_upload_video_parser.add_argument("--tags", default="", help="Comma-separated tags, such as tag1,tag2")
     bilibili_upload_video_parser.add_argument("--schedule", type=schedule_value, help=f"Schedule time in {schedule_help}")
+
+    # Bilibili DM / private message commands
+    bilibili_list_msg_parser = bilibili_actions.add_parser("list-messages", help="List recent DM conversations")
+    bilibili_list_msg_parser.add_argument("--account", required=True, help="Bilibili user-defined account_name")
+
+    bilibili_read_msg_parser = bilibili_actions.add_parser("read-messages", help="Read messages in a conversation")
+    bilibili_read_msg_parser.add_argument("--account", required=True, help="Bilibili user-defined account_name")
+    bilibili_read_msg_parser.add_argument("--index", type=int, default=0, help="Conversation index (0-based, from list-messages)")
+
+    bilibili_reply_msg_parser = bilibili_actions.add_parser("reply-message", help="Reply to a conversation")
+    bilibili_reply_msg_parser.add_argument("--account", required=True, help="Bilibili user-defined account_name")
+    bilibili_reply_msg_parser.add_argument("--index", type=int, required=True, help="Conversation index (0-based, from list-messages)")
+    bilibili_reply_msg_parser.add_argument("--text", required=True, help="Reply text to send")
+
     return parser
 
 
@@ -791,6 +810,38 @@ async def dispatch(args: argparse.Namespace) -> int:
             await upload_bilibili_video(request)
             print(f"Bilibili video upload submitted: {request.video_file}")
             return 0
+
+        if args.action == "list-messages":
+            account_file = resolve_account_file("bilibili", args.account)
+            conversations = bilibili_list_conversations(str(account_file))
+            if not conversations:
+                print("没有找到任何私信会话")
+                return 0
+            for conv in conversations:
+                unread_tag = f" 🔴({conv.unread_count})" if conv.is_unread else ""
+                print(f"[{conv.index}]{unread_tag} {conv.talker_name} (uid:{conv.talker_id})")
+                if conv.last_message:
+                    print(f"    └─ {conv.last_message[:80]}")
+            return 0
+
+        if args.action == "read-messages":
+            account_file = resolve_account_file("bilibili", args.account)
+            detail = bilibili_read_conversation(str(account_file), args.index)
+            print(f"== 与 {detail.talker_name} 的对话 ==")
+            if not detail.messages:
+                print("(没有读取到消息)")
+            for msg in detail.messages:
+                print(f"[{msg.sender}] {msg.text}")
+            return 0
+
+        if args.action == "reply-message":
+            account_file = resolve_account_file("bilibili", args.account)
+            success = bilibili_reply_to_conversation(str(account_file), args.index, args.text)
+            if success:
+                print("消息发送成功 ✅")
+            else:
+                print("消息发送失败 ❌")
+            return 0 if success else 1
 
         raise RuntimeError(f"Unsupported Bilibili action: {args.action}")
 
