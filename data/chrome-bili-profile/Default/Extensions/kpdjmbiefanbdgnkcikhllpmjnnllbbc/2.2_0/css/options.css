@@ -1,0 +1,125 @@
+.title-wrapper {
+    display: flex;
+    align-items: center;
+    margin: 1rem 0;
+}
+
+.title-wrapper h2 {
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+.title-wrapper img {
+    height: 48px;
+    display: inline-block;
+    margin-right: 1rem;
+}
+
+.title-lead {
+    margin-top: 0;
+    color: #555;
+}
+
+.content-wrapper {
+    width: min(400px, 80vw);
+}
+
+form.options {
+    background-color: #f7f7f7;
+    padding: 1.5rem 1rem 1rem;
+    display: inline-block;
+    width: 100%;
+    position: relative;
+
+}
+
+form.options table td:nth-child(2) {
+    padding: .1rem 1rem;
+}
+
+input[type="checkbox"] {
+    margin-left: 0;
+}
+
+
+.error {
+    display: none;
+    color: red;
+}
+
+.lic-info {
+    display: none;
+}
+
+body {
+    padding: 0 1rem 0.5rem 1rem ;
+}
+
+.lic-active, .lic-not-active, .not-logged-in, .logged-in, .is-time-to-renew {
+    display: none;
+}
+
+.lic-info td:nth-child(2) {
+    padding-left: .5rem;
+}
+
+.in-progress {
+    display: inline-block;
+}
+
+
+.settings-wrapper {
+    position: relative;
+}
+
+
+.settings-wrapper table {
+    width: 100%;
+}
+
+.settings-wrapper table input[type='text']{
+    width: 100%;
+}
+
+
+.help-row {
+    display:none;
+}
+.help-row td {
+    padding-left: .5rem;
+    padding-bottom: .5rem;
+    color: #777;
+    font-size: 95%;
+    
+}
+
+.flex-list {
+    display:flex;
+    justify-content: flex-start;
+}
+
+.flex-list ul {
+    list-style-type: none;
+}
+
+
+.toggle-help {
+    position: absolute;
+    top: 6px;
+    right: 6px;
+}
+
+.icon-help:hover {
+    background-color: lightslategray;
+}
+.icon-help {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+    background-color: #b1bac4;
+    -webkit-mask: url("../icons/3rd/circle-question.svg") no-repeat center;
+    mask: url("../icons/3rd/circle-question.svg") no-repeat center;
+}
+
+

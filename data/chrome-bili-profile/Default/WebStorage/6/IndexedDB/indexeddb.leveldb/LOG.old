@@ -1,0 +1,15 @@
+2026/03/13-00:50:08.051 1eea Reusing MANIFEST /Users/semgilo/Library/Application Support/Google/Chrome/Default/WebStorage/6/IndexedDB/indexeddb.leveldb/MANIFEST-000001
+2026/03/13-00:50:08.051 1eea Recovering log #39
+2026/03/13-00:50:08.053 1eea Reusing old log /Users/semgilo/Library/Application Support/Google/Chrome/Default/WebStorage/6/IndexedDB/indexeddb.leveldb/000039.log 
+2026/03/13-00:55:29.051 1ee8 Level-0 table #44: started
+2026/03/13-00:55:29.055 1ee8 Level-0 table #44: 145820 bytes OK
+2026/03/13-00:55:29.056 1ee8 Delete type=0 #39
+2026/03/13-00:55:29.058 1ee8 Manual compaction at level-0 from (begin) .. (end); will stop at (end)
+2026/03/13-00:55:29.058 1ee8 Manual compaction at level-1 from (begin) .. (end); will stop at '\x00\x02\x01\x1f\x04\x03\x01\x06\x00Q\x00U\x00E\x00U\x00E\x00D\x03\x00\x00\x00\x00\x00\x00L@\x03\x00\xe0\xf3>2\xcdyB\x00\x03\x00\x00\x00\x00\x00@Q@' @ 2749 : 1
+2026/03/13-00:55:29.058 1ee8 Compacting 1@1 + 1@2 files
+2026/03/13-00:55:29.060 1ee8 Generated table #45@1: 107 keys, 22313 bytes
+2026/03/13-00:55:29.061 1ee8 Compacted 1@1 + 1@2 files => 22313 bytes
+2026/03/13-00:55:29.061 1ee8 compacted to: files[ 0 0 1 0 0 0 0 ]
+2026/03/13-00:55:29.062 1ee8 Delete type=2 #41
+2026/03/13-00:55:29.062 1ee8 Delete type=2 #44
+2026/03/13-00:55:29.064 1ee8 Manual compaction at level-1 from '\x00\x02\x01\x1f\x04\x03\x01\x06\x00Q\x00U\x00E\x00U\x00E\x00D\x03\x00\x00\x00\x00\x00\x00L@\x03\x00\xe0\xf3>2\xcdyB\x00\x03\x00\x00\x00\x00\x00@Q@' @ 2749 : 1 .. (end); will stop at (end)

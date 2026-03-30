@@ -1,0 +1,69 @@
+{
+   "checksum": "13ebf52c14bb0dd0091f9e7ca8c668be",
+   "roots": {
+      "bookmark_bar": {
+         "children": [ {
+            "date_added": "13395659060572363",
+            "date_last_used": "0",
+            "guid": "43718c0b-c4e8-4028-b11a-f8768d65e3ce",
+            "id": "5",
+            "meta_info": {
+               "power_bookmark_meta": ""
+            },
+            "name": "名侦探柯南：黑铁的鱼影 名探偵コナン 黒鉄の魚影 (2023) / 名侦探柯南剧场版26 / 黒鉄の魚影 / Detective.Conan.Black.Iron.Submarine.2023.2160p.HQ.WEB-DL.H265.DTS5.1-布谷TV | 4K电影下载",
+            "type": "url",
+            "url": "https://www.bugutv.vip/20175.html"
+         }, {
+            "date_added": "13395659392390195",
+            "date_last_used": "0",
+            "guid": "e4cb291b-1772-42f5-8526-80886e462bda",
+            "id": "6",
+            "meta_info": {
+               "power_bookmark_meta": ""
+            },
+            "name": "BT影视_4k高清电影BT下载_蓝光迅雷电影下载_最新电视剧下载",
+            "type": "url",
+            "url": "https://www.btbtl.com/"
+         }, {
+            "date_added": "13396254814195557",
+            "date_last_used": "0",
+            "guid": "1d84f1de-55cb-438b-bfa3-24babdc46949",
+            "id": "7",
+            "meta_info": {
+               "power_bookmark_meta": ""
+            },
+            "name": "MonsGeek Driver | 魔极客云驱动序",
+            "type": "url",
+            "url": "https://web.monsgeek.cn/"
+         } ],
+         "date_added": "13395041659384034",
+         "date_last_used": "0",
+         "date_modified": "13396254814195557",
+         "guid": "0bc5d13f-2cba-5d74-951f-3f233fe6c908",
+         "id": "1",
+         "name": "Bookmarks Bar",
+         "type": "folder"
+      },
+      "other": {
+         "children": [  ],
+         "date_added": "13395041659384045",
+         "date_last_used": "0",
+         "date_modified": "0",
+         "guid": "82b081ec-3dd3-529c-8475-ab6c344590dd",
+         "id": "2",
+         "name": "Other Bookmarks",
+         "type": "folder"
+      },
+      "synced": {
+         "children": [  ],
+         "date_added": "13395041659384049",
+         "date_last_used": "0",
+         "date_modified": "0",
+         "guid": "4cf2e351-0e85-532b-bb37-df045d8f8d0f",
+         "id": "3",
+         "name": "Mobile Bookmarks",
+         "type": "folder"
+      }
+   },
+   "version": 1
+}

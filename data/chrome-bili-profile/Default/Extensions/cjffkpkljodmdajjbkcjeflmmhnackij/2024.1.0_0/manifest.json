@@ -1,0 +1,31 @@
+{
+   "action": {
+      "default_icon": "icons/normal.png",
+      "default_title": "JavaScript Profiler"
+   },
+   "background": {
+      "service_worker": "background.js"
+   },
+   "content_scripts": [ {
+      "js": [ "content.js" ],
+      "matches": [ "\u003Call_urls>" ],
+      "run_at": "document_start"
+   } ],
+   "description": "JavaScript Code Execution Analysis, real-time, 24x7. Provided by Germain UX",
+   "homepage_url": "https://germainux.com",
+   "host_permissions": [ "\u003Call_urls>" ],
+   "icons": {
+      "64": "icons/normal.png"
+   },
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAjHU5y1loe48O8DY+0d0rMnvyxJh7u4sUnw/4/Zb+Zyyq6JzzEViVdvYLUrPqI1RToUGE9mbJMORWZUcXrdoaXNeIN72tQxHCxQ4jjqW1nqizcl0dFCY2hueMgGJw2Bwg0Wf2s0+PHNYDpCfozOVubrVNVJMrP+cffklzk5+OBNQyzgf1ZwlQ1hzOS0w8EWbqbtgXIszr6G8YuN7yKIEzbV4uyaAaVFepBs9VdOr4zONOkB8K8C/cA54Lgposfek4n9NwbaRZ3SvJRv6MyLwatJHmUNwb8idGvRWzglNLr7ruRVxdRbvHoYQQBhWpRsfqqe+xKr2W2gH8qRv8yUu3WQIDAQAB",
+   "manifest_version": 3,
+   "name": "JavaScript Profiler",
+   "offline_enabled": true,
+   "permissions": [ "debugger", "storage" ],
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "2024.1.0",
+   "web_accessible_resources": [ {
+      "matches": [ "\u003Call_urls>" ],
+      "resources": [ "icons/normal.png" ]
+   } ]
+}

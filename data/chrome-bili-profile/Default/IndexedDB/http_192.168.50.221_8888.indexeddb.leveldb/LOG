@@ -1,0 +1,6 @@
+2025/07/02-00:00:18.240 1dad Creating DB /Users/semgilo/Library/Application Support/Google/Chrome/Default/IndexedDB/http_192.168.50.221_8888.indexeddb.leveldb since it was missing.
+2025/07/02-00:00:18.242 1dad Reusing MANIFEST /Users/semgilo/Library/Application Support/Google/Chrome/Default/IndexedDB/http_192.168.50.221_8888.indexeddb.leveldb/MANIFEST-000001
+2025/07/02-00:00:25.018 1dad Level-0 table #5: started
+2025/07/02-00:00:25.019 1dad Level-0 table #5: 4216 bytes OK
+2025/07/02-00:00:25.020 1dad Delete type=0 #3
+2025/07/02-00:00:25.021 1dad Manual compaction at level-0 from (begin) .. (end); will stop at (end)

@@ -1,0 +1,638 @@
+{
+   "a4_paper_size": {
+      "message": "A4"
+   },
+   "add_files": {
+      "message": "Dodaj datoteke"
+   },
+   "add_link": {
+      "message": "Dodaj povezavo"
+   },
+   "add_personal_message_placeholder": {
+      "message": "Dodajte osebno sporočilo"
+   },
+   "app_description": {
+      "message": "Naredite spletne strani prijazne za tiskanje, pretvorite jih v PDF ali zajemite posnetke zaslona. Odstranite oglase za čiste strani, pripravljene za tiskanje ali shranjevanje kot PDF."
+   },
+   "app_name": {
+      "message": "PrintFriendly - Tiskanje, PDF in posnetek zaslona spletnih strani"
+   },
+   "back": {
+      "message": "Nazaj"
+   },
+   "blocked_by_extension": {
+      "message": "PrintFriendly je morda blokiran zaradi drugega vtičnika, ki ste ga namestili, kot je zaviralec oglasov. Začasno onemogočite druge razširitve in poskusite znova ustvariti PDF."
+   },
+   "blockquote": {
+      "message": "Blok citat"
+   },
+   "bold": {
+      "message": "Krepko"
+   },
+   "bottom": {
+      "message": "Spodaj"
+   },
+   "bullet_list": {
+      "message": "Seznam z označevalniki"
+   },
+   "cancel": {
+      "message": "Prekliči"
+   },
+   "capture_failed": {
+      "message": "Na tej strani posnetek zaslona celotne strani ni mogoč."
+   },
+   "capture_failed_descr": {
+      "message": "Nekatere spletne strani uporabljajo okvirje ali dinamične elemente, ki preprečujejo popoln posnetek zaslona. Prosimo, poskusite drugo stran."
+   },
+   "capturing": {
+      "message": "Zajemanje"
+   },
+   "capturing_desc": {
+      "message": "Prosimo, počakajte, posnetek zaslona bo pripravljen v trenutku."
+   },
+   "choose_paper_size": {
+      "message": "Izberite želeno velikost papirja za PDF-je."
+   },
+   "choose_save_method": {
+      "message": "Izberite, kako shraniti to stran"
+   },
+   "compress_pdf": {
+      "message": "Stisni PDF"
+   },
+   "continue": {
+      "message": "Nadaljuj"
+   },
+   "continue_to": {
+      "message": "Nadaljuj na..."
+   },
+   "convert_pdf": {
+      "message": "Pretvori PDF"
+   },
+   "current_view_screenshot": {
+      "message": "Posnetek pogleda"
+   },
+   "current_view_screenshot_desc": {
+      "message": "Zajemi samo vidni del strani."
+   },
+   "default_mode": {
+      "message": "Privzeti način"
+   },
+   "default_mode_checkbox": {
+      "message": "Zapomni si mojo izbiro in naslednjič preskoči ta korak."
+   },
+   "default_mode_checkbox_descr": {
+      "message": "To lahko kasneje spremenite v Nastavitvah."
+   },
+   "default_mode_desc": {
+      "message": "Izberite dejanje, ki se samodejno izbere ob kliku na gumb."
+   },
+   "delete": {
+      "message": "Klik za Brisanje"
+   },
+   "delete_button": {
+      "message": "Izbriši"
+   },
+   "delete_group_title": {
+      "message": "Kliknite za izbris skupine"
+   },
+   "dialog_close": {
+      "message": "Zapri"
+   },
+   "dont_like_printfriendly_description": {
+      "message": "Vaša povratna informacija oblikuje to, kar gradimo, in kako se izboljšujemo. Imate trenutek, da nam poveste, kako bi lahko bili boljši?"
+   },
+   "dont_like_printfriendly_title": {
+      "message": "Hvala, da ste nam dali priložnost"
+   },
+   "dont_show_again": {
+      "message": "Ponovno ne pokaži tega pogovornega okna"
+   },
+   "download_again": {
+      "message": "Prenesi znova"
+   },
+   "download_directory": {
+      "message": "Imenik"
+   },
+   "download_directory_description": {
+      "message": "Določite mapo v imeniku Prenosi, kjer želite shraniti svoje datoteke PDF in slike. Če jo pustite prazno, bodo shranjene v imeniku Prenosi. Uporabljajte samo črke, številke, pomišljaje, podčrtaje in poševnice (drugi znaki bodo odstranjeni)."
+   },
+   "download_warning_close_tab": {
+      "message": "Zaprite trenutno okno PrintFriendly, preden začnete z novim."
+   },
+   "downloading_new_tab": {
+      "message": "Prenos PDF v novem zavihku."
+   },
+   "edit": {
+      "message": "Uredi"
+   },
+   "edit_link": {
+      "message": "Uredi povezavo"
+   },
+   "edit_pdf": {
+      "message": "Uredi PDF"
+   },
+   "email": {
+      "message": "Email"
+   },
+   "email_message": {
+      "message": "Sporočilo"
+   },
+   "email_sent_error_message": {
+      "message": "Vašega e-poštnega sporočila nismo mogli poslati. Poskusite znova pozneje."
+   },
+   "email_sent_error_title": {
+      "message": "E-pošte ni bilo mogoče poslati!"
+   },
+   "email_sent_success_message": {
+      "message": "Vaše e-poštno sporočilo je bilo uspešno poslano."
+   },
+   "email_sent_success_title": {
+      "message": "E-pošta poslana!"
+   },
+   "email_subject": {
+      "message": "Zadeva"
+   },
+   "email_this_page_title": {
+      "message": "Pošlji to stran po e-pošti"
+   },
+   "enable_delete": {
+      "message": "Začni z vklopljeno možnostjo Izbriši"
+   },
+   "enable_yt_playback_pref": {
+      "message": "Omogoči predvajanje videoposnetkov na YouTubu"
+   },
+   "enable_yt_playback_pref_descr": {
+      "message": "Dovolite, da se videoposnetki YouTube predvajajo v vrstici ob kliku"
+   },
+   "enter_email_placeholder": {
+      "message": "Vnesite email"
+   },
+   "excel_to_pdf": {
+      "message": "Excel v PDF"
+   },
+   "extension_settings": {
+      "message": "Nastavitve razširitve"
+   },
+   "file_access_description": {
+      "message": "Pojdite v nastavitve razširitve brskalnika in omogočite \"Dovoli dostop do URL-jev datotek\", da bo razširitev lahko dostopala do te strani."
+   },
+   "file_access_title": {
+      "message": "Dostop do datoteke je potreben"
+   },
+   "firefox_upload_info_description": {
+      "message": "Firefox samodejno zapre pojavno okno, ko izberete datoteko. Da bo vaš potek dela nemoten, bomo odprli novo okno, kjer lahko naložite svojo datoteko in izberete možnosti pretvorbe."
+   },
+   "floating_button": {
+      "message": "Plavajoč gumb"
+   },
+   "floating_button_pref_descr": {
+      "message": "Prikažite gumb za enostaven dostop do PrintFriendly."
+   },
+   "full_page_screenshot": {
+      "message": "Posnetek celotne strani"
+   },
+   "full_page_screenshot_desc": {
+      "message": "Zajemite spletno stran, kot se prikazuje z oglasi itd."
+   },
+   "give_feedback": {
+      "message": "Ne, daj povratne informacije."
+   },
+   "go_to_link": {
+      "message": "Pojdi na povezavo"
+   },
+   "got_it": {
+      "message": "Razumem"
+   },
+   "heading_1": {
+      "message": "Glava 1"
+   },
+   "heading_2": {
+      "message": "Glava 2"
+   },
+   "heading_3": {
+      "message": "Glava 3"
+   },
+   "heading_4": {
+      "message": "Glava 4"
+   },
+   "heading_5": {
+      "message": "Glava 5"
+   },
+   "heading_6": {
+      "message": "Glava 6"
+   },
+   "highlight": {
+      "message": "Izpostavi"
+   },
+   "history_menu": {
+      "message": "Zgodovina (Kmalu na voljo)"
+   },
+   "image": {
+      "message": "Slika"
+   },
+   "image_size_pref": {
+      "message": "Nastavitev velikosti slike"
+   },
+   "image_size_pref_desc": {
+      "message": "Nastavite velikost slik pri ogledu strani z razširitvijo."
+   },
+   "image_to_pdf": {
+      "message": "Slika v PDF"
+   },
+   "image_upload_file_too_large": {
+      "message": "Datoteka slike je prevelika. Izberite sliko manjšo od 5 MB"
+   },
+   "image_upload_select_file": {
+      "message": "Prosimo, izberite slikovno datoteko"
+   },
+   "insert_image": {
+      "message": "Vstavi Sliko"
+   },
+   "italic": {
+      "message": "Ležeče"
+   },
+   "lang_display_name": {
+      "message": "Slovenščina (Slovenian)"
+   },
+   "language_setting": {
+      "message": "Jezik"
+   },
+   "language_setting_desc": {
+      "message": "Izberite želeni jezik."
+   },
+   "left": {
+      "message": "Levo"
+   },
+   "letter_paper_size": {
+      "message": "Pismo"
+   },
+   "like_printfriendly_extension": {
+      "message": "Vam je všeč razširitev PrintFriendly?"
+   },
+   "like_printfriendly_p1_description": {
+      "message": "Vaše povratne informacije nas motivirajo!"
+   },
+   "like_printfriendly_p2_description_chrome": {
+      "message": "Bi bili pripravljeni pregledati PrintFriendly v spletni trgovini Chrome?"
+   },
+   "like_printfriendly_p2_description_edge": {
+      "message": "Bi bili pripravljeni pregledati PrintFriendly na spletnem mestu Microsoft Edge Add-ons?"
+   },
+   "like_printfriendly_p2_description_firefox": {
+      "message": "Ali bi bili pripravljeni pregledati PrintFriendly v trgovini z dodatki za Firefox?"
+   },
+   "like_printfriendly_p2_description_safari": {
+      "message": "Bi bili pripravljeni pregledati PrintFriendly v Safari Extension Store?"
+   },
+   "like_printfriendly_title": {
+      "message": "Veseli smo, da vam je všeč PrintFriendly!"
+   },
+   "log_out": {
+      "message": "Odjava"
+   },
+   "merge": {
+      "message": "Združi"
+   },
+   "merge_pdf": {
+      "message": "Združi PDF"
+   },
+   "merge_pdf_descr": {
+      "message": "Naložite 2 PDF datoteki za združevanje"
+   },
+   "merge_pdfs": {
+      "message": "Združi PDF-datoteke"
+   },
+   "never": {
+      "message": "Nikoli"
+   },
+   "no": {
+      "message": "Ne"
+   },
+   "no_thanks": {
+      "message": "Ne, hvala"
+   },
+   "not_now": {
+      "message": "Zdaj ne"
+   },
+   "numbered_list": {
+      "message": "Oštevilčen seznam"
+   },
+   "off": {
+      "message": "Izklopljeno"
+   },
+   "ok": {
+      "message": "V redu"
+   },
+   "one_day": {
+      "message": "1 dan"
+   },
+   "one_month": {
+      "message": "1 mesec"
+   },
+   "one_week": {
+      "message": "1 teden"
+   },
+   "optional_cookie_permission_descr_line1": {
+      "message": "Če želite omogočiti prijavo, kliknite »Dovoli« na naslednjem zaslonu."
+   },
+   "optional_cookie_permission_descr_line2": {
+      "message": "To dovoljenje omogoča razširitvi PrintFriendly, da potrdi, kdaj ste prijavljeni v PrintFriendly.com, da lahko sinhroniziramo vaš račun z razširitvijo."
+   },
+   "optional_cookie_permission_descr_line3": {
+      "message": "Nikoli ne zbiramo vaše zgodovine brskanja ali podatkov z drugih spletnih mest."
+   },
+   "optional_downloads_permission_descr_line1": {
+      "message": "Za shranjevanje datotek v določeno mapo kliknite na \"Dovoli\" na naslednjem zaslonu."
+   },
+   "optional_downloads_permission_descr_line2": {
+      "message": "To dovoljenje omogoča razširitvi PrintFriendly, da prenese vaše PDF in slike neposredno na izbrano lokacijo."
+   },
+   "optional_host_permission_descr": {
+      "message": "Da bo plavajoči gumb deloval, potrebujemo dovoljenje za ogled in spreminjanje vsebine na spletnih mestih:"
+   },
+   "optional_host_permission_footer": {
+      "message": "Za omogočanje kliknite Dovoli na naslednjem zaslonu."
+   },
+   "optional_host_permission_item_1": {
+      "message": "To je opcijsko in ni potrebno za uporabo PrintFriendly."
+   },
+   "optional_host_permission_item_2": {
+      "message": "To lahko kadar koli izklopite v nastavitvah."
+   },
+   "optional_host_permission_item_3": {
+      "message": "Ne shranjujemo nobenih vaših podatkov o brskanju."
+   },
+   "optional_host_permission_title": {
+      "message": "Omogoči funkcije lebdečega gumba?"
+   },
+   "optional_permission_descr": {
+      "message": "To spletno mesto uporablja iframe, kar omejuje našo sposobnost zajema celotne strani. Za zajem celotnega zaslona potrebujemo dodatno dovoljenje. Ko zaprete to sporočilo, kliknite »Dovoli«, da nadaljujete."
+   },
+   "optional_permission_title": {
+      "message": "Potrebno je dodatno dovoljenje"
+   },
+   "other_tools": {
+      "message": "Druga orodja"
+   },
+   "page_blocking_printfriendly": {
+      "message": "Ta stran blokira PrintFriendly"
+   },
+   "paragraph": {
+      "message": "Odlomek"
+   },
+   "pdf": {
+      "message": "PDF"
+   },
+   "pdf_file_downloaded": {
+      "message": "Vaša datoteka PDF je bila prenesena."
+   },
+   "pdf_generation_error": {
+      "message": "Napaka pri generiranju PDF"
+   },
+   "pdf_paper_size": {
+      "message": "Velikost papirja PDF"
+   },
+   "popup_delete_mode_description": {
+      "message": "Kliknite za brisanje enega razdelka. Povlecite za izbiro in brisanje več razdelkov."
+   },
+   "popup_delete_mode_title": {
+      "message": "Kliknite ali povlecite za brisanje"
+   },
+   "ppt_to_pdf": {
+      "message": "PowerPoint v PDF"
+   },
+   "preformatted": {
+      "message": "Predoblikovano"
+   },
+   "print": {
+      "message": "Natisni"
+   },
+   "print_pdf_margin_pref": {
+      "message": "Rob tiskanja in PDF"
+   },
+   "print_pdf_margin_pref_descr": {
+      "message": "Prilagodite robove za tiskanje in PDF."
+   },
+   "printer_friendly_desc": {
+      "message": "Odstranite oglase in navigacijo s spletnih strani."
+   },
+   "printfriendly_page": {
+      "message": "Stran PrintFriendly"
+   },
+   "profile_settings": {
+      "message": "Nastavitve profila"
+   },
+   "remove": {
+      "message": "Odstrani"
+   },
+   "remove_formatting": {
+      "message": "Odstrani oblikovanje"
+   },
+   "remove_link": {
+      "message": "Odstrani povezavo"
+   },
+   "report": {
+      "message": "Prijavi"
+   },
+   "resolve_issue": {
+      "message": "in pomagali vam bomo odpraviti težavo."
+   },
+   "right": {
+      "message": "Desno"
+   },
+   "safari_custom_footer": {
+      "message": "Vklopite prilagojeni URL noge"
+   },
+   "safari_custom_footer_desc": {
+      "message": "Safari lahko prikaže \"safari-web-extension://\" v nogi strani med tiskanjem. Omogočite to, da prikažete pravi URL strani na strani. (Med tiskanjem odstranite izbiro \"Natisni glave in noge strani\" v Safariju.)"
+   },
+   "safari_description": {
+      "message": "Pretvorite spletne strani v PDF ali slike. Čiste strani brez oglasov, pripravljene za tisk ali shranjevanje."
+   },
+   "safari_name": {
+      "message": "PrintFriendly: PDF in Zajem"
+   },
+   "save_as": {
+      "message": "Shrani kot"
+   },
+   "save_as_description": {
+      "message": "Samodejno odpri pogovorno okno »Shrani kot«, ko preneseš datoteke PDF ali posnetke zaslona. Če ima tvoj brskalnik že nastavitev, da vpraša, kam naj shrani datoteke, ta ima prednost."
+   },
+   "save_changes": {
+      "message": "Shrani"
+   },
+   "save_updates": {
+      "message": "Shrani spremembe"
+   },
+   "saved": {
+      "message": "Shranjeno."
+   },
+   "screenshot": {
+      "message": "Posnetek zaslona"
+   },
+   "screenshot_image_format": {
+      "message": "Format slike posnetka zaslona"
+   },
+   "screenshot_restriction_message": {
+      "message": "PrintFriendly deluje na večini spletnih strani in olajša ustvarjanje čistejših, za tisk prijaznih strani in posnetkov zaslona. Vendar pa so določene strani—kot so nastavitve brskalnika, trgovine z razširitvami in druga omejena območja—zaradi pravil brskalnika nedostopne. Če imate kakršna koli vprašanja, nas kontaktirajte."
+   },
+   "select_file": {
+      "message": "Izberite datoteko"
+   },
+   "send_email_button": {
+      "message": "Pošlji e-pošto"
+   },
+   "sending": {
+      "message": "Pošiljanje..."
+   },
+   "settings": {
+      "message": "Nastavitve"
+   },
+   "settings_saved": {
+      "message": "Vaše nastavitve so bile shranjene."
+   },
+   "share_feedback": {
+      "message": "Delite povratne informacije."
+   },
+   "show_context_menu_pref": {
+      "message": "Prikaži PrintFriendly v kontekstnem meniju ob desnem kliku."
+   },
+   "show_context_menu_pref_descr": {
+      "message": "Ko je omogočeno, lahko dostopate do PrintFriendly neposredno iz kontekstnega menija brskalnika."
+   },
+   "show_download_complete_descr": {
+      "message": "Ko je omogočeno, se po prenosu PDF-ja prikaže potrditveno okno s hitrimi dejanji za ponovno prenašanje, pretvorbo, urejanje ali podpisovanje."
+   },
+   "show_download_complete_pref": {
+      "message": "Prikaži okno »Prenos je končan«."
+   },
+   "show_float_button_on_articles_only": {
+      "message": "Prikaži plavajoči gumb samo na straneh člankov"
+   },
+   "show_float_button_on_articles_only_pref_descr": {
+      "message": "Omogočite to možnost, da se lebdeči PrintFriendly gumb prikaže samo na straneh, ki se zdijo novice ali objave v blogu."
+   },
+   "sign_in": {
+      "message": "Prijavite se"
+   },
+   "sign_pdf": {
+      "message": "Podpiši PDF"
+   },
+   "signin_required_descr": {
+      "message": "Če želite uporabljati kompresijo PDF, se prijavite v svoj PrintFriendly račun."
+   },
+   "signin_required_title": {
+      "message": "Potrebna je prijava"
+   },
+   "skip_screen_next_time": {
+      "message": "Preskoči ta zaslon naslednjič"
+   },
+   "small_images_pref_descr": {
+      "message": "Majhne slike so običajno skrite, saj pogosto niso uporabne pri tiskanju ali shranjevanju v PDF-ju. Vklopite to nastavitev, če jih želite videti."
+   },
+   "small_images_pref_title": {
+      "message": "Prikaži majhne slike"
+   },
+   "start_download_pdf_subtitle": {
+      "message": "Prosimo, ne zaprite brskalnika. To lahko traja minuto."
+   },
+   "start_download_pdf_title": {
+      "message": "Prenašanje vaše datoteke PDF"
+   },
+   "start_over": {
+      "message": "Začni znova"
+   },
+   "still_does_not_work": {
+      "message": "Če to še vedno ne deluje, se obrnite na nas na"
+   },
+   "stop_capturing": {
+      "message": "Ustavi zajemanje"
+   },
+   "strict_security_settings": {
+      "message": "Opravičujemo se, vendar ima ta stran na {{domainName}} stroge varnostne nastavitve (Politika varnosti vsebine), ki preprečujejo delovanje PrintFriendly."
+   },
+   "strict_security_settings_support": {
+      "message": "Za več podrobnosti ali podporo nas kontaktirajte na"
+   },
+   "strict_security_unsupported_page": {
+      "message": "Stran ni podprta s strani PrintFriendly"
+   },
+   "strikethrough": {
+      "message": "Prečrtano"
+   },
+   "style": {
+      "message": "Slog"
+   },
+   "subject_placeholder": {
+      "message": "Vnesite temo"
+   },
+   "take_me_there": {
+      "message": "Seveda, pelji me tja!"
+   },
+   "text_size_pref": {
+      "message": "Nastavitev velikosti besedila"
+   },
+   "text_size_pref_desc": {
+      "message": "Nastavite velikost besedila pri ogledu strani z razširitvijo."
+   },
+   "timed_out_pdf": {
+      "message": "Časovna omejitev za PrintFriendly je morda potekla med ustvarjanjem PDF-ja. Dokument je morda prevelik, da bi ga naš sistem lahko obdelal."
+   },
+   "to_label": {
+      "message": "Na"
+   },
+   "top": {
+      "message": "Vrh"
+   },
+   "turn_off_delete": {
+      "message": "Izklopite Izbriši, da boste lahko kliknili na povezave."
+   },
+   "unable_to_generate_pdf": {
+      "message": "Za to stran nismo mogli ustvariti PDF-ja."
+   },
+   "unauthorized_email_subtitle": {
+      "message": "Za pošiljanje člankov po e-pošti potrebujete brezplačen PrintFriendly račun. Prosimo, prijavite se za nadaljevanje."
+   },
+   "unauthorized_email_subtitle2": {
+      "message": "Prosimo, prijavite se za nadaljevanje."
+   },
+   "unauthorized_email_title": {
+      "message": "Želite poslati ta članek po elektronski pošti?"
+   },
+   "underline": {
+      "message": "Podčrtano"
+   },
+   "undo": {
+      "message": "Razveljavi"
+   },
+   "upload_file_description": {
+      "message": "Stisnite, pretvorite, združite ali uredite datoteke PDF"
+   },
+   "upload_file_footer": {
+      "message": "ali spustite tukaj"
+   },
+   "upload_file_info_title": {
+      "message": "Nalaganje datoteke"
+   },
+   "upload_file_title": {
+      "message": "Preizkusite naše PDF orodja zdaj"
+   },
+   "uploading": {
+      "message": "Nalagam..."
+   },
+   "uploading_file_warning": {
+      "message": "Prosim, ne zapirajte brskalnika. To lahko traja nekaj časa."
+   },
+   "when_to_show_again": {
+      "message": "Kdaj naj to ponovno pokažemo?"
+   },
+   "which_option_best": {
+      "message": "Katera možnost je najboljša zame?"
+   },
+   "word_to_pdf": {
+      "message": "Word v PDF"
+   },
+   "yes": {
+      "message": "Da"
+   }
+}

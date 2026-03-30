@@ -1,0 +1,1 @@
+async function s(t){try{const e=window.localStorage.getItem("vc-settings");if(e){const{showExtension:n}=JSON.parse(e);if(!n)return}chrome.runtime.sendMessage({gaEvent:t},n=>{})}catch{chrome.runtime.sendMessage({gaEvent:{name:"event_tracking_error"}})}}export{s as g};

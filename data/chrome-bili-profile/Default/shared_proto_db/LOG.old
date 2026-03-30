@@ -1,0 +1,9 @@
+2026/03/15-01:50:32.294 28a640 Reusing MANIFEST /Users/semgilo/Library/Application Support/Google/Chrome/Default/shared_proto_db/MANIFEST-000001
+2026/03/15-01:50:32.294 28a640 Recovering log #14
+2026/03/15-01:50:32.295 28a640 Reusing old log /Users/semgilo/Library/Application Support/Google/Chrome/Default/shared_proto_db/000014.log 
+2026/03/15-11:18:25.804 28a643 Compacting 1@1 + 1@2 files
+2026/03/15-11:18:25.813 28a643 Generated table #19@1: 182 keys, 12266 bytes
+2026/03/15-11:18:25.813 28a643 Compacted 1@1 + 1@2 files => 12266 bytes
+2026/03/15-11:18:25.816 28a643 compacted to: files[ 0 0 1 0 0 0 0 ]
+2026/03/15-11:18:25.816 28a643 Delete type=2 #17
+2026/03/15-11:18:25.816 28a643 Delete type=2 #5

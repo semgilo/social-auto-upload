@@ -383,13 +383,27 @@ class XiaoHongShuBaseUploader(BaseVideoUploader):
         if not getattr(self, "desc", ""):
             return
 
-        desc = page.locator('p[data-placeholder*="输入正文描述"]')
-        await desc.click()
-        await page.keyboard.press("Backspace")
-        await page.keyboard.press("Control+KeyA")
+        xiaohongshu_logger.info(_msg("✍️", f"小人开始填写正文（{len(self.desc)}字）"))
+        desc_locator = page.locator('p[data-placeholder*="输入正文描述"]').first
+        await desc_locator.wait_for(state="visible", timeout=10000)
+        await desc_locator.click()
+        # 全选清空后粘贴（比逐字输入快且稳定）
+        await page.keyboard.press("Meta+a")
         await page.keyboard.press("Delete")
-        await page.keyboard.type(self.desc)
-        await page.keyboard.press("Enter")
+        await asyncio.sleep(0.3)
+        await page.evaluate(
+            """(text) => {
+                const el = document.querySelector('p[data-placeholder*="输入正文描述"]');
+                if (el) {
+                    const event = new InputEvent('beforeinput', {bubbles: true, data: text, inputType: 'insertText'});
+                    document.execCommand('selectAll');
+                    document.execCommand('insertText', false, text);
+                }
+            }""",
+            self.desc
+        )
+        await asyncio.sleep(0.5)
+        xiaohongshu_logger.success(_msg("🥳", "正文填写完成"))
 
     async def fill_tags(self, page: Page) -> None:
         if not getattr(self, "tags", None):
@@ -490,26 +504,53 @@ class XiaoHongShuVideo(XiaoHongShuBaseUploader):
         await page.wait_for_url(XHS_PUBLISH_VIDEO_URL)
         await page.locator("div[class^='upload-content'] input[class='upload-input']").set_input_files(self.file_path)
 
+        import time
+        upload_start = time.time()
+        max_upload_seconds = 600  # 最多等 10 分钟
+
         while True:
+            elapsed = time.time() - upload_start
+            if elapsed > max_upload_seconds:
+                raise RuntimeError(f"视频上传超时（已等待 {int(elapsed)} 秒），请检查网络或视频大小")
+
             try:
-                upload_input = await page.wait_for_selector('input.upload-input', timeout=3000)
-                preview_new = await upload_input.query_selector(
-                    'xpath=following-sibling::div[contains(@class, "preview-new")]')
-                if preview_new:
-                    stage_elements = await preview_new.query_selector_all('div.stage')
-                    upload_success = False
-                    for stage in stage_elements:
-                        text_content = await page.evaluate('(element) => element.textContent', stage)
-                        if '上传成功' in text_content or '分辨率' in text_content:
-                            upload_success = True
-                            break
-                    if upload_success:
-                        xiaohongshu_logger.success(_msg("🥳", "视频已经传完啦"))
+                if page.is_closed():
+                    raise RuntimeError("浏览器页面已关闭，上传中断")
+
+                # 优先检查：标题输入框出现 = 上传完成，已进入编辑表单
+                title_input = page.locator('input[placeholder*="填写标题"]')
+                if await title_input.count() > 0 and await title_input.is_visible():
+                    xiaohongshu_logger.success(_msg("🥳", "标题输入框已出现，视频上传完成！"))
+                    break
+
+                # 备用检查：预览区的上传成功标识
+                try:
+                    upload_input = await page.wait_for_selector('input.upload-input', timeout=2000)
+                    preview_new = await upload_input.query_selector(
+                        'xpath=following-sibling::div[contains(@class, "preview-new")]')
+                    if preview_new:
+                        stage_elements = await preview_new.query_selector_all('div.stage')
+                        for stage in stage_elements:
+                            text_content = await page.evaluate('(element) => element.textContent', stage)
+                            if '上传成功' in text_content or '分辨率' in text_content:
+                                xiaohongshu_logger.success(_msg("🥳", "视频已经传完啦"))
+                                break
+                        else:
+                            xiaohongshu_logger.debug(_msg("🧍", f"还没看到上传成功标识，已等待 {int(elapsed)}s，继续等"))
+                            await asyncio.sleep(2)
+                            continue
                         break
-                    xiaohongshu_logger.debug(_msg("🧍", "还没看到上传成功标识，小人继续等一会"))
-                else:
-                    xiaohongshu_logger.debug(_msg("🧍", "还没拿到预览区域，小人继续等一会"))
+                    else:
+                        xiaohongshu_logger.debug(_msg("🧍", f"还没拿到预览区域，已等待 {int(elapsed)}s，继续等"))
+                except Exception:
+                    xiaohongshu_logger.debug(_msg("🧍", f"等待上传中，已等待 {int(elapsed)}s"))
+
+            except RuntimeError:
+                raise
             except Exception as e:
+                err_msg = str(e)
+                if "Target page, context or browser has been closed" in err_msg or "browser has been closed" in err_msg:
+                    raise RuntimeError(f"浏览器已关闭，上传中断: {err_msg}")
                 xiaohongshu_logger.debug(_msg("😵", f"上传状态还没稳定下来，小人继续观察: {e}"))
             await asyncio.sleep(2)
 

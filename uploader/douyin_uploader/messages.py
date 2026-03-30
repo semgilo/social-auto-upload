@@ -319,20 +319,28 @@ async def _extract_messages(page: Page, contact_name: str = "") -> ConversationD
     douyin_logger.info(_msg("🔗", f"点击后URL: {current_url}"))
     await _debug_screenshot(page, "chat_panel")
 
-    # Strategy: use JS to find messages in the RIGHT portion of the page
-    # The sidebar is on the left (~250-300px), chat is on the right
+    # Strategy: find individual message bubbles (leaf-level text elements)
+    # in the chat panel. Use element width to distinguish bubble vs container,
+    # and horizontal center position to determine sender.
     raw_msgs = await page.evaluate("""(contactName) => {
         const results = [];
         const seen = new Set();
 
-        // Get sidebar boundary - look for the conversation list
+        // Get sidebar boundary
         const sidebar = document.querySelector('.semi-tabs-pane-active');
         const sidebarRect = sidebar?.getBoundingClientRect();
-        // Sidebar is typically ~280-320px wide
         const sidebarRight = sidebarRect ? (sidebarRect.right + 10) : 300;
+        const chatWidth = window.innerWidth - sidebarRight;
+        // Chat area center line (used to determine sender)
+        const chatCenterX = sidebarRight + chatWidth / 2;
 
-        // Find all leaf text nodes in the right area
-        // Emojis might be in img elements or span with special content
+        // UI text to skip
+        const uiTexts = new Set(['发送', '关注', '查看Ta的主页', '在线客服',
+            '抖音创作服务平台', '新的创作', '高清发布', '数据中心', '互动管理',
+            '私信管理', '首页', '活动管理', '内容管理', '变现中心', '创作中心',
+            '没有更多了~', '陌生人消息']);
+
+        // Walk all elements, find leaf-level text nodes in chat area
         const walker = document.createTreeWalker(
             document.body,
             NodeFilter.SHOW_ELEMENT,
@@ -340,48 +348,47 @@ async def _extract_messages(page: Page, contact_name: str = "") -> ConversationD
             false
         );
 
-        const elements = [];
         let node;
         while (node = walker.nextNode()) {
             const rect = node.getBoundingClientRect();
+            // Must be in chat area (right of sidebar)
             if (rect.left < sidebarRight) continue;
-            if (rect.top < 120 || rect.bottom > window.innerHeight - 120) continue;
-            if (rect.width < 20 || rect.height < 10) continue;
-            elements.push(node);
-        }
+            // Must be visible
+            if (rect.top < 100 || rect.bottom > window.innerHeight - 80) continue;
+            // Size filter: skip full-width containers (> 60% chat width)
+            // and tiny elements
+            if (rect.width > chatWidth * 0.60) continue;
+            if (rect.width < 15 || rect.height < 10) continue;
 
-        for (const el of elements) {
-            // Get text content including alt text from images (for emojis)
-            let text = '';
-
-            // Direct text content
-            const directText = el.innerText?.trim() || '';
-
-            // Also check for img alt text (emojis are often images with alt)
-            const imgs = el.querySelectorAll('img');
-            const imgAlts = Array.from(imgs).map(img => img.alt).filter(Boolean).join('');
-
-            // Combine
-            text = directText || imgAlts;
-
-            if (!text || text.length < 1) continue;
-            if (text.length > 150) continue;
+            // Get text - prefer direct innerText
+            let text = node.innerText?.trim() || '';
+            if (!text) {
+                // Try img alt (emoji)
+                const imgs = node.querySelectorAll('img');
+                text = Array.from(imgs).map(img => img.alt).filter(Boolean).join('');
+            }
+            if (!text || text.length < 1 || text.length > 200) continue;
             if (seen.has(text)) continue;
+            if (uiTexts.has(text)) continue;
+            if (text === contactName) continue;
 
-            // Skip UI elements
-            if (['发送', '关注', '查看Ta的主页', '在线客服', '抖音创作服务平台',
-                 '新的创作', '高清发布', '数据中心', '互动管理', '私信管理'].includes(text)) continue;
-            if (['首页', '活动管理', '内容管理', '变现中心', '创作中心'].includes(text)) continue;
-            if (text === '没有更多了~') continue;
-            // Skip if it looks like a username/header
-            if (text === contactName || text === '陌生人消息') continue;
+            // Check this is a leaf-level text element (no child has same text)
+            let isLeaf = true;
+            for (const child of node.children) {
+                if (child.innerText?.trim() === text) {
+                    isLeaf = false;
+                    break;
+                }
+            }
+            if (!isLeaf) continue;
 
             seen.add(text);
 
-            // Determine sender by horizontal position
-            const rect = el.getBoundingClientRect();
-            const chatAreaCenter = sidebarRight + (window.innerWidth - sidebarRight) / 2;
-            const isSelf = rect.left > chatAreaCenter;
+            // Determine sender by center position of the bubble
+            // Self (right-aligned): center > chat center
+            // Other (left-aligned): center < chat center
+            const bubbleCenterX = (rect.left + rect.right) / 2;
+            const isSelf = bubbleCenterX > chatCenterX;
 
             results.push({
                 sender: isSelf ? '我' : (contactName || '对方'),
@@ -391,7 +398,7 @@ async def _extract_messages(page: Page, contact_name: str = "") -> ConversationD
             });
         }
 
-        // Sort by vertical position (top to bottom)
+        // Sort by vertical position
         results.sort((a, b) => a.top - b.top);
 
         return { items: results.map(r => ({ sender: r.sender, text: r.text })), count: results.length };

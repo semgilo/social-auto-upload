@@ -1,0 +1,32 @@
+{
+   "action": {
+      "default_icon": "icon-34.png",
+      "default_popup": "src/pages/popup/index.html"
+   },
+   "background": {
+      "service_worker": "src/pages/background/index.js",
+      "type": "module"
+   },
+   "content_scripts": [ {
+      "all_frames": true,
+      "css": [ "assets/css/contentStyle17572126953.chunk.css" ],
+      "js": [ "src/pages/content/index.js" ],
+      "matches": [ "https://chat.openai.com/*", "https://chatgpt.com/*" ]
+   } ],
+   "description": "Expands ChatGPT with fast voice control in multiple languages, read aloud, and more!",
+   "icons": {
+      "128": "icon-128.png"
+   },
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAj5N4ledf/fgrtRCORvC1gL89wcPij+wxl9QDzaMeaZGMFrCVaOzxLXiHjWUGnCBLY7cnHq464RhbFQRw7lMelsNEsUiasdOib+O16hGnVznCnbUFxPArKRP0SVzByLI58sWeRsDPyoPdUP+ZzIH0dL+The0IKf+uMZr5lvuKqS9+HXAVO8Z5BfcsDykfr1UVMTKdDft4hSpcGTB/2UP80kxldwojDYZMdChPL+LuaTVziuZJHhVquTYjn7g7vOt3sHZYjFdGgAAGj2Sg2S/1eAfinDtfILIrFshWNyl7Mq4eOREaWDYvpaNI16tmbdIDYLKFkeem0QikCH/e5/MEBQIDAQAB",
+   "manifest_version": 3,
+   "name": "Voice Control for ChatGPT",
+   "optional_host_permissions": [ "https://*/*" ],
+   "optional_permissions": [ "tabs", "scripting" ],
+   "permissions": [ "storage" ],
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "4.3.1",
+   "web_accessible_resources": [ {
+      "matches": [ "*://*/*" ],
+      "resources": [ "assets/js/*.js", "assets/css/*.css", "assets/svg/*.svg", "assets/png/*.png", "assets/webm/*.webm", "assets/mp3/*.mp3", "icon-128.png", "icon-34.png", "manifest.json", "src/pages/permission/index.html", "src/pages/permission/index.js", "src/pages/newtab/index.html", "src/pages/newtab/index.js" ]
+   } ]
+}

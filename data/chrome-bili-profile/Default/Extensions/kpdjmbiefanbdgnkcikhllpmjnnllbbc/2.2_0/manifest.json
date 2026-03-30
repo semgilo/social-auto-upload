@@ -1,0 +1,39 @@
+{
+   "action": {
+      "default_icon": {
+         "128": "icons/icon128.png",
+         "16": "icons/icon16.png",
+         "24": "icons/icon24.png",
+         "32": "icons/icon32.png",
+         "48": "icons/icon48.png",
+         "64": "icons/icon64.png"
+      },
+      "default_popup": "popup.html",
+      "default_title": "Save as PDF by Pdfcrowd.com"
+   },
+   "background": {
+      "service_worker": "js/background.js",
+      "type": "module"
+   },
+   "description": "Download web pages as PDF in one click.",
+   "host_permissions": [ "https://pdfcrowd.com/" ],
+   "icons": {
+      "128": "icons/icon128.png",
+      "16": "icons/icon16.png",
+      "24": "icons/icon24.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png",
+      "64": "icons/icon64.png"
+   },
+   "key": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCvPOGhOoGoxz3dos1hYciuHPrfAfhqrfndEXc1whGxkB2nbYWytEAF9BXDN/fL4FQDcqkPpliROTUcfKmH/vV32un9PBxpzNSL/iU4ESB+pY3aZ6MYyy7WAON9za8Q9IAtl9A9V8wFoLG+VsTzLD3hlwnuGGRGnz1LR8ezIRzhZwIDAQAB",
+   "manifest_version": 3,
+   "minimum_chrome_version": "100",
+   "name": "Save as PDF",
+   "options_ui": {
+      "open_in_tab": true,
+      "page": "options.html"
+   },
+   "permissions": [ "tabs", "storage", "downloads" ],
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "2.2"
+}
